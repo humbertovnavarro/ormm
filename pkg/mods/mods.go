@@ -37,3 +37,7 @@ func (m *Mod) Serialize(root string) (err error) {
 	err = os.WriteFile(metaPath, encoding, 0755)
 	return err
 }
+
+func ModTypeDetection(file string) {
+
+}

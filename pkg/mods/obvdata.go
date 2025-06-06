@@ -26,13 +26,20 @@ var BUILT_IN_ESPS = []string{
 
 func OBVDataLoadOrderSuggestion(mods []Mod) string {
 	vanilla := strings.Join(BUILT_IN_ESPS, "\n")
+
+	mods = slices.DeleteFunc(mods, func(m Mod) bool {
+		return m.LoadPriority < 0
+	})
+
 	slices.SortFunc(mods, func(a Mod, b Mod) int {
 		return b.LoadPriority - a.LoadPriority
 	})
+
 	modOrdering := make([]string, 0)
 	for _, m := range mods {
 		modOrdering = append(modOrdering, m.Name)
 	}
+
 	modLoadOrder := strings.Join(modOrdering, "\n")
 	return vanilla + "\n" + modLoadOrder
 }
