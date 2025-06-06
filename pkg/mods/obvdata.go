@@ -20,8 +20,9 @@ var BUILT_IN_ESPS = []string{
 	"DLCVileLair.esp",
 	"Knights.esp",
 	"AltarESPMain.esp",
-	"AltarDeluxe.esp",
 	"AltarESPLocal.esp",
+	"AltarGymNavigation.esp",
+	"AltarDeluxe.esp",
 }
 
 func OBVDataLoadOrderSuggestion(mods []Mod) string {
